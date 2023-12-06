@@ -17,6 +17,7 @@ const selectedDifficulty = ref(5);
 const roundNo = ref(1);
 const noOfPlayers = ref(4);
 const players = ref([]);
+
 function start() {
   roundNo.value = 1;
   players.value = []
@@ -62,7 +63,7 @@ function rollDice() {
         <Button type="submit" label="Start"/>
       </form>
     </div>
-    <div class="card flex flex-column align-items-center gap-2 mt-5">
+    <div v-if="players.length !== 0" class="card flex flex-column align-items-center gap-2 mt-5">
       <h3 class="font-bold">Round {{ roundNo }}</h3>
       <div v-for="(player, index) in players">
         <p class="font-bold"> Player {{ index + 1 }} </p>
